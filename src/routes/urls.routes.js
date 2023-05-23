@@ -6,12 +6,7 @@ import { deleteUrl, getUrlById, openShortUrl, shortenUrl } from "../controllers/
 
 const router = Router();
 
-router.post(
-  "/urls/shorten",
-  validateSchema(urlSchema),
-  authValidation,
-  shortenUrl
-);
+router.post("/urls/shorten", validateSchema(urlSchema), authValidation, shortenUrl);
 router.get("/urls/:id", getUrlById);
 router.get("/urls/open/:shortUrl", openShortUrl);
 router.delete("/urls/:id", authValidation, deleteUrl);
